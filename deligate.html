@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+
+<body>
+    <h1>hello event Delegate</h1>
+
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem ipsum dolor sit amet.</li>
+            <li class="item">Veniam eligendi architecto reprehenderit! Veniam!</li>
+            <li class="item">Sapiente odio reprehenderit pariatur enim!</li>
+            <li class="item">At id aliquid modi expedita!</li>
+            <li class="item">Ab reiciendis deleniti consectetur voluptatibus?</li>
+            <li class="item">Doloribus nostrum nisi perspiciatis ipsum!</li>
+        </ul>
+        <!-- <button id="btn-add-item">add new</button> -->
+        <textarea name="" id="new-comment" cols="50" rows="2"></textarea>
+        <br>
+        <button id="btn-post">add new</button>
+
+    </section>
+
+
+    <script>
+
+
+        // const listContainer = document.getElementsByClassName('list-container');
+        // for (const item of items) {
+        //     item.addEventListener('click', function (event) {
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        document.getElementById('list-container').addEventListener('click', function () {
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
+        // document.getElementById('btn-add-item').addEventListener('click', function () {
+        //     const listContainer = document.getElementById('list-container');
+        //     const li = document.createElement('li');
+        //     li.innerText = 'brand new item added';
+        //     li.classList.add('item');
+        //     listContainer.appendChild(li);
+        // })
+
+        document.getElementById('btn-post').addEventListener('click', function () {
+            const commentBox = document.getElementById('new-comment');
+            const newComment = commentBox.value;
+            const commentContainer = document.getElementById('list-container');
+            const p = document.createElement('li');
+            p.innerText = newComment;
+            commentContainer.appendChild(p);
+            commentBox.value = '';
+        });
+
+
+    </script>
+</body>
+
+</html>
